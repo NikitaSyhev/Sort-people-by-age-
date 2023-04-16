@@ -1,0 +1,35 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Homework2
+{
+    internal class Program
+    { 
+              static void Main(string[] args)
+        {
+            List<Person> people = new List<Person>();
+            Console.WriteLine("Enter a number of people: ");
+            int number  = int.Parse(Console.ReadLine());
+            for (int i = 0; i < number; i++)
+
+            {
+                Console.WriteLine($"Enter name:");
+                string name = Console.ReadLine();
+                Console.WriteLine($"Enter age:");
+                int age = int.Parse(Console.ReadLine());
+                Person person = new Person(name, age);
+                people.Add(person);
+            }
+           people.Sort((p1, p2) => p2.Age.CompareTo(p1.Age));
+            Console.WriteLine("List of people:");
+            foreach (Person person in people)
+            {
+                Console.WriteLine($"{person.Name} - {person.Age}");
+            }
+            Console.ReadKey();
+        }
+    }
+}
